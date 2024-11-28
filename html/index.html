@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Event Management</h1>
+</header>
+
+<!-- Form for creating/updating events -->
+<section id="event-form">
+    <h2>Create or Update Event</h2>
+    <form id="eventForm">
+        <label for="eventName">Event Name:</label>
+        <input type="text" id="eventName" required>
+
+        <label for="eventDate">Date:</label>
+        <input type="date" id="eventDate" required>
+
+        <label for="eventTime">Time:</label>
+        <input type="time" id="eventTime" required>
+
+        <label for="eventLocation">Location:</label>
+        <input type="text" id="eventLocation" required>
+
+        <label for="eventDescription">Description:</label>
+        <textarea id="eventDescription" required></textarea>
+
+        <button type="submit" id="submitEvent">Submit Event</button>
+    </form>
+</section>
+
+<!-- List of Events -->
+<section id="event-list">
+    <h2>Upcoming Events</h2>
+    <ul id="events"></ul>
+</section>
+
+<script type="module" src="../js/eventService.js"></script>
+<script type="module" src="../js/eventController.js"></script>
+<script type="module" src="../js/eventView.js"></script>
+
+</body>
+</html>

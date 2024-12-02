@@ -1,4 +1,3 @@
-/* Styling for Event Management */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -7,58 +6,61 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: white;
+    background-color: #fff5e9;
+    color: #658b56;
     padding: 10px 0;
-    text-align: center;
 }
 
-h1, h2 {
-    margin: 0;
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
-#event-form {
-    background-color: white;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 5px;
-}
-
-label {
-    display: block;
-    margin: 5px 0;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
+.nav-link {
+    color: #000000;
+    text-decoration: none;
     padding: 10px 20px;
-    border: none;
     border-radius: 5px;
-    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-button:hover {
-    background-color: #45a049;
+.nav-link:hover {
+    background-color: #0fc0d7;
 }
 
-#event-list ul {
-    list-style-type: none;
-    padding: 0;
-}
 
-#event-list li {
-    background-color: white;
-    padding: 10px;
-    margin: 10px 0;
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fdfdfd;
+    box-shadow: 0 8px 16px rgb(255, 245, 233);
     border-radius: 5px;
-    border: 1px solid #ccc;
+    z-index: 1;
+    margin-top: 5px;
+    min-width: 160px;
+}
+
+.dropdown-content a {
+    color: #643c3c;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ffffff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
 }

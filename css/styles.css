@@ -29,6 +29,13 @@ header {
 .nav-link:hover {
     background-color: #0fc0d7;
 }
+.hero-image {
+    width: 100%; /* Tilpasser billedet til bredden af containeren */
+    max-width: 600px; /* Begrænser billedets maksimum bredde */
+    height: auto; /* Bevarer billedets proportioner */
+    display: block; /* Centrerer billedet, hvis det bruges med margin */
+    margin: 0 auto; /* Centerer billedet i containeren */
+}
 
 
 
@@ -64,3 +71,89 @@ header {
     padding: 20px;
     text-align: center;
 }
+/* Grid layout for events */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolonner */
+    gap: 20px; /* Afstand mellem kortene */
+    margin-top: 20px;
+}
+
+.event-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.event-card:hover {
+    transform: scale(1.05); /* Zoom ind ved hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.event-card h2 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: #003366;
+}
+
+.event-card p {
+    font-size: 16px;
+    color: #555;
+}
+/* Stilarter til knapperne */
+.btn {
+    display: inline-block;
+    margin: 10px 5px 0;
+    padding: 10px 15px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #00509e;
+}
+
+.btn.view-more {
+    background-color: #28a745; /* Grøn knap */
+}
+
+.btn.view-more:hover {
+    background-color: #218838; /* Mørkere grøn ved hover */
+}
+
+.btn.register {
+    background-color: #dc3545; /* Rød knap */
+}
+
+.btn.register:hover {
+    background-color: #c82333; /* Mørkere rød ved hover */
+}
+/* Footer-styling */
+footer {
+    background-color: #fff5e9;
+    text-align: left;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+
+.footer-logo img {
+    max-width: 100px; /* Tilpas størrelsen på logoet */
+    height: auto;
+    border-radius: 5px; /* Gør hjørnerne lidt runde, hvis ønsket */
+}
+
+footer img:hover {
+    transform: scale(1.1); /* Effekt ved hover */
+    transition: transform 0.3s;
+}
+

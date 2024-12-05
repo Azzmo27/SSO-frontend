@@ -10,7 +10,7 @@ document.getElementById("registration-form").addEventListener("submit", function
         department: document.getElementById("department").value,
     };
 
-    fetch("http://localhost:8080/api/registrations", { // Din backend server URL
+    fetch("http://localhost:8080/api/members", { // Din backend server URL
         method: "POST",
         headers: {
             "Content-Type": "application/json",

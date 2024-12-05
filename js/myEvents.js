@@ -1,38 +1,39 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const token = localStorage.getItem("authToken");
+document.getElementById('loginForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Prevent the form from submitting the normal way
 
-    // Find alle "Tilmeld"-knapper
-    const registerButtons = document.querySelectorAll(".btn.register");
+    const role = document.getElementById('role').value; // Get selected role (admin or member)
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-    registerButtons.forEach((button) => {
-        button.addEventListener("click", function() {
-            if (!token) {
-                // Hvis brugeren ikke er logget ind, omdiriger til login-siden
-                window.location.href = "../templates/login.html";
-            } else {
-                const eventId = button.getAttribute("data-event-id");
+    // Set the form action based on the selected role
+    let loginUrl = '';
+    if (role === 'admin') {
+        loginUrl = 'http://localhost:8080/admin/login'; // Admin login URL
+    } else {
+        loginUrl = 'http://localhost:8080/member/login'; // Member login URL
+    }
 
-                // Foretag API-kald for at tilmelde brugeren til eventet
-                fetch("http://localhost:8080/api/bookings", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": "Bearer " + token,
-                    },
-                    body: JSON.stringify({ memberId: 1, eventId: eventId }), // Justér med faktiske data
-                })
-                    .then((response) => {
-                        if (response.ok) {
-                            alert("Tilmelding lykkedes!");
-                        } else {
-                            response.text().then((text) => alert("Fejl: " + text));
-                        }
-                    })
-                    .catch((error) => {
-                        console.error("Error:", error);
-                        alert("Noget gik galt. Prøv igen senere.");
-                    });
-            }
-        });
+    const response = await fetch(loginUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',  // Form submission content type
+        },
+        body: new URLSearchParams({
+            email: email,
+            password: password
+        }),
+        credentials: 'same-origin' // Ensure session cookies are sent
     });
+
+    if (response.ok) {
+        // Login successful - redirect to the appropriate dashboard
+        if (role === 'admin') {
+            window.location.href = "/admin/dashboard"; // Admin dashboard
+        } else {
+            window.location.href = "/member/dashboard"; // Member dashboard
+        }
+    } else {
+        // Login failed - show error message
+        alert("Invalid credentials. Please try again.");
+    }
 });

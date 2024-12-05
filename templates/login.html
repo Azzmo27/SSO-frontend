@@ -11,15 +11,46 @@
     <div class="navbar">
         <a href="../templates/index.html" class="nav-link">Hjem</a>
         <a href="../templates/login.html" class="nav-link">Log ind</a>
+        <a href="../templates/signup.html" class="nav-link">Tilmeld dig</a> <!-- Tilmeldingslink -->
     </div>
 </header>
 
 <div class="login-container">
     <h1>Log ind</h1>
-    <form id="login-form">
-        <label for="email"></label><input type="email" id="email" placeholder="Email" required>
-        <label for="password"></label><input type="password" id="password" placeholder="Password" required>
-        <button type="submit">Log ind</button>
+
+    <!-- Rollevalg for login -->
+    <form id="loginForm" method="POST" action="/login"> <!-- Sørg for at backend ruter er korrekt -->
+        <label for="role">Log ind som:</label>
+        <select id="role" name="role" required>
+            <option value="admin">Admin</option>
+            <option value="member">Member</option>
+        </select>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit">Login</button>
+    </form>
+
+    <hr>
+    <!-- Tilmeldingsformular for nye medlemmer -->
+    <h2>Er du ikke medlem? Tilmeld dig her</h2>
+    <form id="signupForm" method="POST" action="/signup"> <!-- Sørg for at backend ruter er korrekt -->
+        <label for="new-email">Email:</label>
+        <input type="email" id="new-email" name="email" required />
+
+        <label for="new-password">Password:</label>
+        <input type="password" id="new-password" name="password" required />
+
+        <label for="new-role">Rolle:</label>
+        <select id="new-role" name="role" required>
+            <option value="member">Member</option> <!-- Kun Member for tilmeldingen -->
+        </select>
+
+        <button type="submit">Tilmeld dig</button>
     </form>
 </div>
 

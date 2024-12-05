@@ -1,85 +1,56 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const token = localStorage.getItem("authToken");
+document.getElementById('loginForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Stop formen fra at blive sendt på den normale måde
 
-    // Find alle "Tilmeld"-knapper
-    const registerButtons = document.querySelectorAll(".btn.register");
+    const role = document.getElementById('role').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-    registerButtons.forEach((button) => {
-        if (token) {
-            // Hvis brugeren er logget ind, aktiver knappen
-            button.disabled = false;
-
-            button.addEventListener("click", function () {
-                const eventId = button.getAttribute("data-event-id");
-
-                // Foretag API-kald for at tilmelde brugeren til eventet
-                fetch("http://localhost:8080/api/bookings", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": "Bearer " + token,
-                    },
-                    body: JSON.stringify({ memberId: 1, eventId: eventId }), // Justér med faktiske data
-                })
-                    .then((response) => {
-                        if (response.ok) {
-                            alert("Tilmelding lykkedes!");
-                        } else {
-                            response.text().then((text) => alert("Fejl: " + text));
-                        }
-                    })
-                    .catch((error) => {
-                        console.error("Error:", error);
-                        alert("Noget gik galt. Prøv igen senere.");
-                    });
-            });
-        } else {
-            // Hvis brugeren ikke er logget ind, deaktiver knappen og vis en advarsel
-            button.disabled = true;
-            button.title = "Log ind for at tilmelde dig dette event.";
-        }
-    });
-    document.getElementById("login-form").addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        const formData = {
-            email: document.getElementById("email").value,
-            password: document.getElementById("password").value,
-        };
-
-        fetch("http://localhost:8080/api/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
+    const response = await fetch('http://localhost:8080/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',  // Sender som JSON
+        },
+        body: JSON.stringify({
+            role: role,
+            email: email,
+            password: password
         })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.token) {
-                    // Gem token i localStorage og omdiriger til events siden
-                    localStorage.setItem("authToken", data.token);
-                    window.location.href = "../templates/events.html"; // Omdiriger til events side
-                } else {
-                    alert("Fejl: " + data.message);
-                }
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-                alert("Noget gik galt. Prøv igen senere.");
-            })
-        // Antag at du har modtaget JWT-token ved login
-        localStorage.setItem("authToken", token);
-
-// Send token med i headeren i fremtidige anmodninger
-        fetch("http://localhost:8080/api/protected-endpoint", {
-            method: "GET",
-            headers: {
-                "Authorization": "Bearer " + localStorage.getItem("authToken")
-            }
-        })
-            .then(response => response.json())
-            .then(data => console.log(data));
     });
 
+    if (response.ok) {
+        // Login succesfuld - redirect til dashboard
+        window.location.href = "/dashboard";
+    } else {
+        // Login mislykkedes - vis en fejlmeddelelse
+        alert("Invalid credentials. Please try again.");
+    }
+});
+
+document.getElementById('signupForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Stop formen fra at blive sendt på den normale måde
+
+    const email = document.getElementById('new-email').value;
+    const password = document.getElementById('new-password').value;
+    const role = document.getElementById('new-role').value;
+
+    const response = await fetch('http://localhost:8080/signup', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',  // Sender som JSON
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password,
+            role: role
+        })
+    });
+
+    if (response.ok) {
+        // Tilmelding succesfuld - redirect til login
+        alert("Tilmelding succesfuld! Du kan nu logge ind.");
+        window.location.href = "/login";
+    } else {
+        // Tilmelding mislykkedes - vis en fejlmeddelelse
+        alert("Tilmelding mislykkedes. Prøv igen.");
+    }
 });

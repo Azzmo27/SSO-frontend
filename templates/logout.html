@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSO Organisation</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<!-- Common Header -->
+<div th:replace="~{common-header}"></div>
+
+<!-- Navbar -->
+<header>
+    <div class="navbar">
+        <button id="btn-become-member" class="btn">Become a Member</button>
+        <button id="btn-view-events" class="btn">View Events</button>
+        <div class="dropdown-content">
+            <a href="../templates/copenhagen.html" id="btn-cph">København</a>
+            <a href="../templates/odense.html" id="btn-odense">Odense</a>
+            <a href="../templates/aarhus.html" id="btn-aarhus">Aarhus</a>
+        </div>
+        <a href="../templates/about.html" class="btn">About Us</a>
+        <a href="../templates/login.html" class="btn" id="login-link">Log ind</a>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <h1>Velkommen til SSO Organisation</h1>
+    <p>Udforsk vores tjenester og afdelinger.</p>
+    <img src="../images/SSO.jpg" alt="Beskrivelse af billedet">
+</div>
+
+<!-- Common Footer -->
+<div th:replace="~{common-footer}"></div>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

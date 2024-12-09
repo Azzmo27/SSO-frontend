@@ -53,4 +53,29 @@ document.getElementById('signupForm').addEventListener('submit', async function(
         // Tilmelding mislykkedes - vis en fejlmeddelelse
         alert("Tilmelding mislykkedes. Prøv igen.");
     }
+    // Efter succesfuldt login
+    fetch(`${apiBaseUrl}/admin/login`, {
+        method: 'POST',
+        body: new URLSearchParams({
+            username: "adminUsername",
+            password: "adminPassword"
+        }),
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        }
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.token) {
+                localStorage.setItem("authToken", data.token); // Gem token i localStorage
+                alert("Login successful!");
+                window.location.reload(); // Opdater siden efter login
+            } else {
+                alert("Invalid login credentials");
+            }
+        })
+        .catch(error => {
+            console.error("Login error:", error);
+        });
+
 });

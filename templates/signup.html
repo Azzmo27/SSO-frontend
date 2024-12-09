@@ -29,8 +29,19 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
 
+        <label for="membershipType">Medlemstype:</label>
+        <select id="membershipType" name="membershipType" required>
+            <option value="Passiv">Passiv</option>
+            <option value="Aktiv">Aktiv</option>
+        </select>
+
         <label for="department">Department:</label>
-        <input type="text" id="department" name="department" required>
+        <select id="department" name="department" disabled>
+            <option value="Funding">Funding</option>
+            <option value="Social og Kultur">Social og Kultur</option>
+            <option value="Rekruttering">Rekruttering</option>
+            <option value="Marketing og Karriere">Marketing og Karriere</option>
+        </select>
 
         <button type="submit">Sign Up</button>
     </form>

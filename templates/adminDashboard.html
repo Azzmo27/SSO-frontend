@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <a href="../templates/index.html" class="nav-link">Home</a>
+        <a href="../templates/logout.html" class="nav-link">Logout</a>
+    </div>
+</header>
+
+<div class="admin-dashboard">
+    <h1>Admin Dashboard</h1>
+
+    <!-- Event List -->
+    <h2>Upcoming Events</h2>
+    <div id="events-list"></div>
+
+    <!-- Event Registration Info -->
+    <h2>Event Registrations</h2>
+    <div id="event-registrations"></div>
+
+    <!-- Event Form -->
+    <h2>Create Event</h2>
+    <form id="createEventForm">
+        <label for="eventName">Event Name:</label>
+        <input type="text" id="eventName" required><br>
+        <label for="eventDate">Event Date:</label>
+        <input type="datetime-local" id="eventDate" required><br>
+        <button type="submit">Create Event</button>
+    </form>
+</div>
+
+<script src="../js/admin_dashboard.js"></script>
+</body>
+</html>

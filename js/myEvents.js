@@ -1,7 +1,7 @@
 document.getElementById('loginForm').addEventListener('submit', async function(event) {
     event.preventDefault(); // Prevent the form from submitting the normal way
 
-    const role = document.getElementById('role').value; // Get selected role (admin or member)
+    const role = document.getElementById('role').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 

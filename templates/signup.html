@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="../css/styles.css">
+
 </head>
 <body>
 <header>
@@ -16,8 +17,8 @@
 
 <div class="signup-container">
     <h1>Sign Up</h1>
-    <form id="signupForm">
-        <label for="name">Name:</label>
+    <form id="signupForm" method="POST" action="http://localhost:8080/api/auth/signup">
+    <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
 
         <label for="lastName">Last Name:</label>

@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Fetch user profile data
     async function loadUserProfile() {
         try {
-            const response = await fetch('/api/member/profile', {
+            const response = await fetch('/members', {
                 method: 'GET',
                 credentials: 'same-origin', // Send cookies with request (if needed)
             });

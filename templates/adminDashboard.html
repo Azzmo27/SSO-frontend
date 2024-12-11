@@ -9,33 +9,57 @@
 <body>
 <header>
     <div class="navbar">
-        <a href="../templates/index.html" class="nav-link">Home</a>
+        <a href="../templates/index.html" class="nav-link">Hjem</a>
         <a href="../templates/logout.html" class="nav-link">Logout</a>
     </div>
 </header>
-
 <div class="admin-dashboard">
     <h1>Admin Dashboard</h1>
 
-    <!-- Event List -->
-    <h2>Upcoming Events</h2>
-    <div id="events-list"></div>
+    <section id="events-section">
+        <h2>Kommende Events</h2>
+        <div id="events-list"></div>
+        <a href="../templates/upcomingEvents.html" id="btn-cph">tryk</a>
+    </section>
+    <!-- HTML-formular til at oprette en admin -->
+    <form id="createAdminForm">
+        <label for="adminUsername">Username:</label>
+        <input type="text" id="adminUsername" name="username" required>
 
-    <!-- Event Registration Info -->
-    <h2>Event Registrations</h2>
-    <div id="event-registrations"></div>
+        <label for="adminPassword">Password:</label>
+        <input type="password" id="adminPassword" name="password" required>
 
-    <!-- Event Form -->
-    <h2>Create Event</h2>
-    <form id="createEventForm">
-        <label for="eventName">Event Name:</label>
-        <input type="text" id="eventName" required><br>
-        <label for="eventDate">Event Date:</label>
-        <input type="datetime-local" id="eventDate" required><br>
-        <button type="submit">Create Event</button>
+        <button type="submit">Create Admin</button>
     </form>
-</div>
 
+
+    <section id="registrations-section">
+        <h2>Registrerede Brugere</h2>
+        <div id="event-registrations"></div>
+    </section>
+
+    <section id="create-event-section">
+        <h2>Opret Nyt Event</h2>
+        <form id="createEventForm">
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName" name="name" required>
+
+            <label for="eventDescription">Description:</label>
+            <textarea id="eventDescription" name="description" required></textarea>
+
+            <label for="eventLocation">Location:</label>
+            <input type="text" id="eventLocation" name="location" required>
+
+            <label for="eventDateTime">Date and Time:</label>
+            <input type="datetime-local" id="eventDateTime" name="dateTime" required>
+
+            <label for="eventDeadline">Deadline:</label>
+            <input type="datetime-local" id="eventDeadline" name="deadline" required>
+
+            <button type="submit">Create Event</button>
+        </form>
+    </section>
+</div>
 <script src="../js/admin_dashboard.js"></script>
 </body>
 </html>

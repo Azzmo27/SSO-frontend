@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +7,40 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-<div th:replace="~{common-header}"></div>
 <header>
     <div class="navbar">
         <a href="../templates/index.html" class="nav-link">Hjem</a>
-        <a href="../templates/about.html" class="nav-link">About Us</a>
+        <a href="../templates/about.html" class="nav-link">Om Os</a>
         <a href="../templates/upcomingEvents.html" class="nav-link">Events</a>
     </div>
 </header>
 <div class="container">
     <h1>Mine Tilmeldte Events</h1>
-    <ul id="events-list"></ul>
+    <ul id="events-list">
+        <!-- Dynamisk liste -->
+    </ul>
+</div>
+<!-- Modal til redigering af events -->
+<div id="edit-event-modal" class="modal">
+    <div class="modal-content">
+        <h2>Rediger Event</h2>
+        <form id="edit-event-form">
+            <label for="event-name">Navn:</label>
+            <input type="text" id="event-name" required>
+            <label for="event-description">Beskrivelse:</label>
+            <textarea id="event-description" required></textarea>
+            <label for="event-location">Lokation:</label>
+            <input type="text" id="event-location" required>
+            <label for="event-date">Dato:</label>
+            <input type="date" id="event-date" required>
+            <label for="event-time">Tid:</label>
+            <input type="time" id="event-time" required>
+            <button type="submit" id="save-button">Gem</button>
+            <button type="button" id="delete-event-btn">Slet</button>
+            <button type="button" id="cancel-button">Annuller</button>
+        </form>
+    </div>
 </div>
 <script src="../js/myEvents.js"></script>
 </body>
 </html>
-

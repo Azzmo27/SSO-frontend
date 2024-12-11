@@ -1,3 +1,9 @@
+function fetchAnyUrl(url) {
+    return fetch(url).then(response =>response.json())
+
+}
+
+
 document.addEventListener("DOMContentLoaded", function() {
     // Check if elements exist before adding event listeners
     const btnBecomeMember = document.getElementById('btn-become-member');

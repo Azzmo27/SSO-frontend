@@ -8,9 +8,9 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     // Set the form action based on the selected role
     let loginUrl = '';
     if (role === 'admin') {
-        loginUrl = 'http://localhost:8080/admin/login'; // Admin login URL
+        loginUrl = 'http://localhost:8080/login'; // Admin login URL
     } else {
-        loginUrl = 'http://localhost:8080/member/login'; // Member login URL
+        loginUrl = 'http://localhost:8080/login'; // Member login URL
     }
 
     const response = await fetch(loginUrl, {

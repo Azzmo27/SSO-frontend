@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,54 +7,25 @@
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-<div th:replace="~{common-header}"></div>
 <header>
     <div class="navbar">
         <a href="../templates/login.html" class="nav-link">Bliv Medlem</a>
         <a href="../templates/upcomingEvents.html" class="nav-link">Se Events</a>
         <a href="../templates/index.html" class="nav-link">Hjem</a>
-        <a href="../templates/about.html" class="nav-link">About Us</a>
-        <a href="../templates/upcomingEvents.html" class="nav-link">Events</a>
+        <a href="../templates/about.html" class="nav-link">Om Os</a>
     </div>
 </header>
 <div class="container">
     <h1>Kommende Events</h1>
-    <div class="event-grid">
-        <div class="event-card">
-            <h2>Karrierevent</h2>
-            <p>Hvornår: 15. december 2024</p>
-            <p>Tid: kl 17:00 - 20:00</p>
-            <p>Sted: Søndre Campus, 9A.3.01., Alf Ross Auditorium</p>
-            <p>CV-sparring - få professionel feedback, der styrker dit førstehåndsindtryk</p>
-            <img src="../images/SSO%20karriereEvent.jpg" alt="Karriere Event" class="hero-image">
-            <button class="btn view-more">Læs Mere</button>
-            <button class="btn register">Tilmeld</button>
-        </div>
-        <div class="event-card">
-            <h2>Karriereevent</h2>
-            <p>Hvornår: 15. december 2024</p>
-            <p>Tid: kl 17:00 - 20:00</p>
-            <p>Sted: Søndre Campus, 9A.3.01., Alf Ross Auditorium</p>
-            <img src="../images/SSO%20karriereEvent.jpg" alt="Karriere Event" class="hero-image">
-            <button class="btn view-more">Læs Mere</button>
-            <button class="btn register" data-event-id="1">Tilmeld</button>
-        </div>
-
-        </div>
-        <div class="event-card">
-            <h2>Netværksaften</h2>
-            <p>10. april 2024</p>
-            <p>Mød nye mennesker og styrk dit netværk i en afslappet atmosfære.</p>
-            <p>Sted: Søndre Campus, 9A.3.01., Alf Ross Auditorium</p>
-            <img src="../images/SSO%20karriereEvent.jpg" alt="Karriere Event" class="hero-image">
-            <button class="btn view-more">Læs Mere</button>
-            <button class="btn register">Tilmeld</button>
-        </div>
+    <div id="upcoming-events-list" class="event-grid">
+        <!-- Dynamisk liste -->
     </div>
-    <footer>
-        <div class="footer-logo">
-            <img src="../images/SSO.jpg" alt="SSO Logo">
-        </div>
-    </footer>
+</div>
+<footer>
+    <div class="footer-logo">
+        <img src="../images/SSO.jpg" alt="SSO Logo">
+    </div>
+</footer>
+<script src="../js/upcomingEvents.js"></script>
 </body>
 </html>

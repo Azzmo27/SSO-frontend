@@ -3,47 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Dashboard</title>
+    <title>Medlem Dashboard</title>
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
 <header>
     <div class="navbar">
-        <a href="../templates/index.html" class="nav-link">Home</a>
+        <a href="../templates/index.html" class="nav-link">Hjem</a>
         <a href="../templates/logout.html" class="nav-link">Logout</a>
     </div>
 </header>
-
 <div class="member-dashboard">
     <h1>Velkommen, Medlem</h1>
-
-    <!-- Profile Section -->
     <section id="profile-section">
         <h2>Din Profil</h2>
         <div id="profile-info">
-            <p><strong>Name:</strong> John Doe</p>
-            <p><strong>Email:</strong> johndoe@example.com</p>
+            <!-- Dynamisk info -->
         </div>
-        <button id="edit-profile-btn">Rediger din profil</button>
+        <button id="edit-profile-btn">Rediger Profil</button>
     </section>
-
-    <!-- Registered Events Section -->
     <section id="registered-events-section">
-        <h2>Dine Registrerede Events</h2>
+        <h2>Dine Events</h2>
         <div id="events-list">
-            <!-- Dynamically populated -->
-        </div>
-    </section>
-
-    <!-- Upcoming Events Section -->
-    <section id="upcoming-events-section">
-        <h2>Kommende Events</h2>
-        <div id="upcoming-events-list">
-            <!-- Dynamically populated -->
+            <!-- Dynamisk liste -->
         </div>
     </section>
 </div>
-
 <script src="../js/member_dashboard.js"></script>
 </body>
 </html>

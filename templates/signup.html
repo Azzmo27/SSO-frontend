@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../images/SSO.jpg" type="image/png">
 
 </head>
 <body>
@@ -16,9 +17,8 @@
 </header>
 
 <div class="signup-container">
-    <h1>Sign Up</h1>
-    <form id="signupForm" method="POST" action="http://localhost:8080/api/auth/signup">
-    <label for="name">Name:</label>
+    <form id="signupForm">
+        <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
 
         <label for="lastName">Last Name:</label>
@@ -46,6 +46,7 @@
 
         <button type="submit">Sign Up</button>
     </form>
+
 </div>
 
 <script src="../js/signup.js"></script>

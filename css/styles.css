@@ -173,22 +173,29 @@ footer img:hover {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
 .social-btn {
     display: inline-block;
-    margin: 5px;
+    margin: 1px;
     padding: 10px 20px;
     color: #fff;
-    background-color: #0073e6;
+    background-color: #fff5e9;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 1px;
     text-align: center;
 }
 
 .social-btn:hover {
-    background-color: #005bb5;
+    background-color: #fff5e9;
 }
 
+/* Ny CSS for at gøre Instagram-logoet lille */
+.social-btn img {
+    width: 30px; /* Gør logoet mindre */
+    height: auto;
+    transition: transform 0.3s ease;
+}
 
-
+.social-btn:hover img {
+    transform: scale(1.1); /* Effekt ved hover */
+}

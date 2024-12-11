@@ -1,32 +1,39 @@
-console.log("jeg er hvor du medlem");
-
-const urlSignup = "http://localhost:8080/api/auth/signup";
-
 document.addEventListener("DOMContentLoaded", function () {
     const membershipType = document.getElementById("membershipType");
     const department = document.getElementById("department");
     const signupForm = document.getElementById("signupForm");
 
+    const urlSignup = "http://localhost:8080/api/auth/signup";  // Signup URL
+    const urlLogin = "http://localhost:8080/api/auth/login";    // Login URL
+    // Tjek om signupForm findes
+    if (!signupForm) {
+        console.error("signupForm elementet blev ikke fundet i DOM'en.");
+        return; // Stop scriptet, hvis formularen ikke findes
+    }
+
+    // Tjek om alle nødvendige elementer findes
+    if (!membershipType || !department) {
+        console.error("Et eller flere nødvendige elementer blev ikke fundet i DOM'en.");
+        return;
+    }
+
     // Når medlemstypen ændres
     membershipType.addEventListener("change", function () {
         if (membershipType.value === "Aktiv") {
-            // Gør "Department" påkrævet og aktiver det
             department.disabled = false;
             department.required = true;
         } else {
-            // Deaktiver og gør "Department" ikke påkrævet
             department.disabled = true;
             department.required = false;
         }
     });
 
-    // Ekstra validering ved indsendelse af formular
+    // Ekstra validering ved indsendelse af signup-formular
     signupForm.addEventListener("submit", async function (event) {
-        // Stop indsendelse hvis afdeling ikke er valgt ved "Aktiv"
         if (membershipType.value === "Aktiv" && department.value === "") {
-            event.preventDefault(); // Stop indsendelse
+            event.preventDefault();
             alert("For aktivt medlemskab skal du vælge en afdeling.");
-            return; // Forhindre videre eksekvering
+            return;
         }
 
         try {
@@ -39,15 +46,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 membershipType: membershipType.value
             };
 
-            // Kald signup-funktionen
             const response = await signup(urlSignup, formData);
             const data = await response.json();
 
-            // Log hele responsen til konsollen
             console.log("Response data:", data);
 
             if (response.ok) {
                 alert("Signup successful!");
+                // Omdiriger brugeren til member dashboard
+                window.location.href = "../templates/member_dashboard.html"; // Rediger stien til din member dashboard fil
             } else {
                 alert("Error: " + (data.message || "Something went wrong."));
             }
@@ -63,11 +70,30 @@ document.addEventListener("DOMContentLoaded", function () {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-
             },
             body: JSON.stringify(data),
         };
-        const response = await fetch(url, fetchOptions);
+
         return await fetch(url, fetchOptions);
+    }
+
+    // Login-funktion (kan være nyttig til senere brug, f.eks. ved auto-login efter signup)
+    async function login(email, password) {
+        const response = await fetch(urlLogin, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log('Login successful', data);
+            alert("Login successful!");
+        } else {
+            console.log('Login failed', data.message);
+            alert("Login failed: " + data.message);
+        }
     }
 });

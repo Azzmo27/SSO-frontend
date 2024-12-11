@@ -1,131 +1,71 @@
-const apiBaseUrl = "http://localhost:8080"; // Backend URL
-const token = "your-auth-token-here"; // Erstat med den faktiske token-hentningslogik
-// Admin oprettelse
-function createAdmin() {
-    const newAdmin = {
-        username: document.getElementById("adminUsername").value,
-        password: document.getElementById("adminPassword").value
-    };
+const apiBaseUrl = "http://localhost:8080"; // Backend API URL
 
-    fetch(`${apiBaseUrl}/admin/add`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newAdmin)
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data) {
-                alert("Admin created successfully!");
-            }
-        })
-        .catch(error => {
-            console.error("Error creating admin:", error);
-        });
-}
-// Funktion til at vise eventregistreringer
-function showEventRegistrations(eventId) {
-    fetch(`${apiBaseUrl}/api/events/${eventId}/members`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+// Fetch upcoming events and display them
+const fetchEvents = async () => {
+    try {
+        const response = await fetch("http://localhost:8080/api/events");
+        if (!response.ok) {
+            throw new Error(`Failed to fetch events: ${response.statusText}`);
         }
-    })
-        .then(response => response.json())
-        .then(data => {
-            let registrationListHTML = `<h3>Registrations for ${data.event.name}</h3><ul>`;
-            data.registrations.forEach(registration => {
-                registrationListHTML += `<li>${registration.member.name}</li>`;
-            });
-            registrationListHTML += `</ul>`;
-            document.getElementById("event-registrations").innerHTML = registrationListHTML;
-        })
-        .catch(error => {
-            console.error("Error fetching event registrations:", error);
-        });
-}
-
-// Funktion til at slette events
-function deleteEvent(eventId) {
-    fetch(`${apiBaseUrl}/api/events/${eventId}`, {
-        method: 'DELETE',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    })
-        .then(response => {
-            if (response.ok) {
-                alert("Event deleted successfully!");
-                fetchEvents(); // Opdatér listen
-            } else {
-                alert("Error deleting event.");
-            }
-        })
-        .catch(error => {
-            console.error("Error deleting event:", error);
-        });
-}
-
-// Funktion til at hente og vise events
-function fetchEvents() {
-    fetch(`${apiBaseUrl}/api/events`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        }
-    })
-        .then(response => response.json())
-        .then(events => {
-            let eventsListHTML = "";
-            events.forEach(event => {
-                eventsListHTML += `
-                <div class="event-card">
-                    <h3>${event.name}</h3>
-                    <p>${event.description}</p>
-                    <p><strong>Location:</strong> ${event.location}</p>
-                    <button onclick="showEventRegistrations(${event.id})">View Registrations</button>
-                    <button onclick="deleteEvent(${event.id})">Delete Event</button>
-                </div>
+        const events = await response.json();
+        console.log("Fetched events:", events); // Log the response
+        const eventsList = document.getElementById("events-list");
+        eventsList.innerHTML = ""; // Clear existing content
+        events.forEach(event => {
+            const eventDiv = document.createElement("div");
+            eventDiv.innerHTML = `
+                <h3>${event.name}</h3>
+                <p>${event.description}</p>
+                <p>Location: ${event.location}</p>
+                <p>Date and Time: ${event.dateTime}</p>
+                <p>Deadline: ${event.deadline}</p>
             `;
-            });
-            document.getElementById("events-list").innerHTML = eventsListHTML;
-        })
-        .catch(error => {
-            console.error("Error fetching events:", error);
+            eventsList.appendChild(eventDiv);
         });
+    } catch (error) {
+        console.error("Error fetching events:", error);
+    }
 }
 
-// Håndter oprettelse af nyt event
-document.getElementById("createEventForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+// Handle form submission for creating an event
+document.getElementById("createEventForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const eventName = document.getElementById("eventName").value;
+    const eventDescription = document.getElementById("eventDescription").value;
+    const eventLocation = document.getElementById("eventLocation").value;
+    const eventDateTime = document.getElementById("eventDateTime").value;
+    const eventDeadline = document.getElementById("eventDeadline").value;
 
     const newEvent = {
-        name: document.getElementById("eventName").value,
-        dateTime: document.getElementById("eventDate").value,
-        description: document.getElementById("eventDescription").value,
-        location: document.getElementById("eventLocation").value
+        name: eventName,
+        description: eventDescription,
+        location: eventLocation,
+        dateTime: eventDateTime,
+        deadline: eventDeadline,
     };
 
     fetch(`${apiBaseUrl}/api/events`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify(newEvent)
+        body: JSON.stringify(newEvent),
     })
-        .then(response => response.json())
-        .then(event => {
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to create event: ${response.statusText}`);
+            }
             alert("Event created successfully!");
-            fetchEvents(); // Opdatér listen
+            return fetchEvents(); // Refresh the events list by calling fetchEvents() again
         })
         .catch(error => {
             console.error("Error creating event:", error);
         });
 });
 
-// Hent events, når siden er indlæst
-document.addEventListener("DOMContentLoaded", fetchEvents);
+fetchEvents().then(() => {
+    console.log("Events fetched and displayed.");
+}).catch(error => {
+    console.error("Error fetching events:", error);
+});

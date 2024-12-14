@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Upcoming Events</h1>
+
+    <div id="event-list"></div>
+
+    <div class="signup-form">
+        <h2>Sign up for an Event</h2>
+        <label for="event-id">Event ID</label>
+        <input type="number" id="event-id" placeholder="Event ID" required>
+        <label for="member-email">Your Email</label>
+        <input type="email" id="member-email" placeholder="Your Email" required>
+        <button onclick="signUpForEvent()">Sign Up</button>
+    </div>
+</div>
+
+<script src="../js/upcoming-events.js"></script>
+</body>
+</html>

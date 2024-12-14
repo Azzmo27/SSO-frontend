@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+</head>
+<body>
+<h1>Create User</h1>
+<form id="createUserForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Username" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Email" required />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Password" required />
+
+    <label for="membershipType">Membership Type:</label>
+    <select id="membershipType" required>
+        <option value="ACTIVE">Active</option>
+        <option value="PASSIVE">Passive</option>
+    </select>
+
+    <div id="departmentContainer" style="display: none;">
+        <label for="department">Department:</label>
+        <select id="department">
+            <option value="FUNDING">Funding</option>
+            <option value="SOCIAL_AND_CULTURE">Social and Culture</option>
+            <option value="RECRUITMENT">Recruitment</option>
+            <option value="MARKETING_AND_CAREER">Marketing and Career</option>
+        </select>
+    </div>
+
+    <button type="submit">Create User</button>
+</form>
+
+<script src="../js/create-user.js"></script>
+</body>
+</html>

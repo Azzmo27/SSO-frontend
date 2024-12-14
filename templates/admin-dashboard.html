@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Admin Dashboard</h1>
+
+    <!-- Create Event Form -->
+    <div class="form-container">
+        <h2>Create Event</h2>
+        <form id="create-event-form">
+            <label for="event-name">Event Name</label>
+            <input type="text" id="event-name" required>
+            <label for="event-description">Event Description</label>
+            <textarea id="event-description" required></textarea>
+            <label for="event-date">Event Date</label>
+            <input type="datetime-local" id="event-date" required>
+            <button type="submit">Create Event</button>
+        </form>
+    </div>
+
+    <!-- Update Event Form -->
+    <div class="form-container">
+        <h2>Update Event</h2>
+        <label for="update-event-id">Event ID</label>
+        <input type="number" id="update-event-id">
+        <button onclick="getEventDetails()">Get Event</button>
+        <form id="update-event-form">
+            <label for="update-event-name">Event Name</label>
+            <input type="text" id="update-event-name" required>
+            <label for="update-event-description">Event Description</label>
+            <textarea id="update-event-description" required></textarea>
+            <label for="update-event-date">Event Date</label>
+            <input type="datetime-local" id="update-event-date" required>
+            <button type="submit">Update Event</button>
+        </form>
+    </div>
+
+    <!-- Event List -->
+    <div class="event-list">
+        <h2>Event List</h2>
+        <ul id="event-list"></ul>
+    </div>
+
+    <!-- Delete Event -->
+    <div class="form-container">
+        <h2>Delete Event</h2>
+        <input type="number" id="delete-event-id" placeholder="Event ID">
+        <button onclick="deleteEvent()">Delete Event</button>
+    </div>
+</div>
+
+<script src="../js/admin-dashboard.js"></script>
+</body>
+</html>

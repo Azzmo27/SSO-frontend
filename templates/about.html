@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
@@ -11,7 +10,8 @@
 <body>
 <div th:replace="~{common-footer}"></div>
 
-<header> <img src="../images/sso%20logo%20skrift.jpg" alt="Beskrivelse af billedet">
+<header>
+    <img src="../images/sso%20logo%20skrift.jpg" alt="SSO logo">
     <div class="navbar">
         <a href="../templates/index.html" class="nav-link">Hjem</a>
         <a href="../templates/login.html" class="nav-link">Bliv Medlem</a>
@@ -25,16 +25,86 @@
                 <a href="../templates/odense.html" id="btn-odense">Odense</a>
                 <a href="../templates/aarhus.html" id="btn-aarhus">Aarhus</a>
             </div>
-
         </div>
         <a href="../templates/about.html" class="nav-link">About Us</a>
     </div>
-
 </header>
+
 <div class="container">
-    <h1>Om Os</h1>
-    <p>SSO Organisation er en sammenslutning dedikeret til at styrke fællesskabet og skabe fantastiske oplevelser. Vi arbejder for at bringe mennesker sammen gennem events og samarbejde på tværs af vores afdelinger i København, Odense og Aarhus.</p>
-    <p>Vi tror på værdien af fællesskab og engagement. Vores mål er at skabe et netværk, hvor alle føler sig velkomne.</p>
+    <h1>Om SSO</h1>
+
+    <section>
+        <h2>Hvem er vi?</h2>
+        <p>Somalisk Studenter Organisation (SSO) arbejder for at samle og styrke somaliske studerende i Danmark.
+            Vi har siden vores grundlæggelse haft fokus på at skabe et stærkt fællesskab, hvor vi støtter hinanden i vores personlige og faglige udvikling.
+            Vores mål er at opbygge relationer og give unge de redskaber, de har brug for til at navigere på arbejdsmarkedet og i samfundet.</p>
+        <img src="../images/sso%20team.jpg" alt="SSO members" style="width: 25%; display: -moz-inline-block; margin: 5px auto;">
+    </section>
+
+    <section>
+        <h2>Vores Vision</h2>
+        <p>SSO arbejder for en fremtid, hvor somaliske unge i Danmark har de samme muligheder som alle andre.
+            Vi kæmper for at skabe et inkluderende og støttende fællesskab, hvor vi kan lære af hinanden og vokse sammen.
+            Ønsket om at se unge lykkes er vores røde tråd, og vi stræber efter at gøre en forskel både lokalt og nationalt.</p>
+        <img src=".." alt="SSO vision" style="width: 25%; display: block; margin: 5px auto;">
+    </section>
+
+    <section>
+        <h2>Hvorfor er vores arbejde vigtigt?</h2>
+        <p>Det moderne arbejdsmarked er udfordrende, og undersøgelser viser, at op mod 70% af alle jobs bliver fundet gennem netværk.
+            Mange somaliske unge mangler dog de nødvendige netværk og ressourcer til at få fodfæste på arbejdsmarkedet.
+            Derfor arbejder SSO for at opbygge bro mellem studerende og professionelle, så de kan skabe relationer og dele viden, der fremmer deres karriere.</p>
+        <img src="../images/why_important.jpg" alt="BILLEDE MANGLER" style="width: 50%; display: block; margin: 10px auto;">
+    </section>
+
+    <section>
+        <h2>Hvad tilbyder vi?</h2>
+        <p>SSO tilbyder en række aktiviteter og ressourcer til vores medlemmer, herunder:</p>
+        <ul>
+            <li>Netværksarrangementer og sociale sammenkomster.</li>
+            <li>Workshops om jobsøgning, CV-skrivning og interviewteknik.</li>
+            <li>Mentorprogrammer, der forbinder unge med erfarne professionelle.</li>
+            <li>Samarbejder med virksomheder og organisationer, der ønsker at støtte unge talenter.</li>
+        </ul>
+        <p>Gennem disse initiativer hjælper vi vores medlemmer med at tage skridtet ind på arbejdsmarkedet og skabe en meningsfuld karriere.</p>
+        <img src="../images/SSO%20gamenight.jpg" alt="Workshop in progress" style="width: 20%; display: block; margin: 5px auto;"> <img src="../images/SSO%20karriereEvent.jpg" alt="Workshop in progress" style="width: 20%; display: block; margin: 5px auto;">
+    </section>
+
+    <section>
+        <h2>SSO i tal</h2>
+        <p>Med flere hundrede aktive medlemmer og en voksende tilstedeværelse i København, Odense og Aarhus, er SSO en stærk stemme for somaliske studerende i Danmark.
+            Vi er stolte over at være en del af en bevægelse, der skaber positiv forandring og inspirerer den næste generation til at nå deres fulde potentiale.</p>
+        <img src="../images/sso_in_numbers.jpg" alt="BILLEDE MANGLER" style="width: 50%; display: block; margin: 10px auto;">
+    </section>
+
+    <section>
+        <h2>Bliv en del af fællesskabet</h2>
+        <p>SSO er for dig, der ønsker at gøre en forskel – både for dig selv og for andre.
+            Sammen kan vi skabe et stærkt netværk og bidrage til en bedre fremtid for somaliske unge i Danmark.
+            Vi opfordrer dig til at blive medlem og tage del i vores arbejde for at gøre en reel forskel.</p>
+        <img src="../images/sso%20logo%20skrift.jpg" alt="Join SSO" style="width: 50%; display: block; margin: 10px auto;">
+    </section>
 </div>
+
+<!-- Social Media section -->
+<div class="footer-follow">
+    <h4>Follow Us</h4>
+    <div class="social-buttons">
+        <a href="https://www.facebook.com/SSODanmark/" target="_blank" class="social-btn">
+            <img src="../images/facebook.webp" alt="Facebook" class="social-icon">
+        </a>
+        <a href="https://www.instagram.com/ssokoebenhavn/" target="_blank" class="social-btn">
+            <img src="../images/instagram%20logo.jpg" alt="Instagram" class="social-icon">
+        </a>
+        <a href="https://www.linkedin.com/company/somalisk-studenterorganisation/?originalSubdomain=dk" target="_blank" class="social-btn">
+            <img src="../images/circle-linkedin-512.webp" alt="LinkedIn" class="social-icon">
+        </a>
+        <a href="https://www.tiktok.com/@sso.odense" target="_blank" class="social-btn">
+            <img src="../images/tiktok.webp" alt="TikTok" class="social-icon">
+        </a>
+    </div>
+</div>
+
+</footer>
 </body>
 </html>

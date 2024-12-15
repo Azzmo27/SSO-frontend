@@ -199,3 +199,18 @@ footer img:hover {
 .social-btn:hover img {
     transform: scale(1.1); /* Effekt ved hover */
 }
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px; /* Holder layoutet centreret */
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}

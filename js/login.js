@@ -9,11 +9,18 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ username: usernameOrEmail, email: usernameOrEmail, password }),  // Send both username and email
+            body: JSON.stringify({ username: usernameOrEmail, password }),  // Vi sender kun username og password
         });
 
         if (response.ok) {
             const data = await response.json();
+            console.log("Login Response:", data);  // Log response for debugging
+
+            // Gemmer de relevante data i localStorage
+            localStorage.setItem("username", data.username);  // Gem username
+            localStorage.setItem("memberEmail", data.email);  // Gem email
+
+            // Omdiriger til den relevante dashboard-side baseret på rollen
             if (data.role === "ROLE_ADMIN") {
                 window.location.href = "admin-dashboard.html";
             } else if (data.role === "ROLE_MEMBER") {
@@ -21,14 +28,9 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
             }
         } else {
             const error = await response.text();
-            alert(`Error: ${error}`);  // Show the error message
+            alert(`Error: ${error}`);
         }
     } catch (error) {
         console.error("Error:", error);
     }
-});
-
-// Add event listener to the "Create User" button to redirect to the create user form
-document.getElementById("createUserButton").addEventListener("click", () => {
-    window.location.href = "create-user.html";
 });

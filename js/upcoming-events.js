@@ -2,6 +2,8 @@ const apiUrl = 'http://localhost:8080/api/events';  // Adjust this URL to your A
 
 // Load upcoming events
 function loadUpcomingEvents() {
+    const baseUrl = 'http://localhost:8080'; // Adjust this if your server URL changes
+
     fetch(`${apiUrl}/getAllEvents`)
         .then(response => response.json())
         .then(events => {
@@ -12,8 +14,10 @@ function loadUpcomingEvents() {
                 const eventElement = document.createElement('div');
                 eventElement.classList.add('event-card');
 
-                // Check if the imageUrl exists
-                const imageUrl = event.imageUrl ? event.imageUrl : 'default-image.jpg'; // fallback image
+                // Use the provided image URL or fallback to a default image
+                const imageUrl = event.imageUrl
+                    ? `${baseUrl}${event.imageUrl}`
+                    : '../images/default-image.jpg'; // Adjust the default image path
 
                 eventElement.innerHTML = `
                     <img src="${imageUrl}" alt="${event.name}" class="event-image">
@@ -35,7 +39,10 @@ function loadUpcomingEvents() {
                 });
             });
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Failed to load events. Please try again.");
+        });
 }
 
 // Sign up for an event

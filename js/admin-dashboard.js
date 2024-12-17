@@ -89,15 +89,17 @@ function loadEventList() {
         .then(events => {
             const eventListElement = document.getElementById('event-list');
             eventListElement.innerHTML = '';  // Clear the list first
+
             events.forEach(event => {
+                // Create a list item for each event
                 const li = document.createElement('li');
-                li.textContent = `${event.name} - ${event.date}`;
+                // Display both event name and event ID
+                li.textContent = `ID: ${event.id} - ${event.name} - ${event.date}`;
                 eventListElement.appendChild(li);
             });
         })
         .catch(error => console.error('Error:', error));
 }
-
 // Load events on page load
 window.onload = function() {
     loadEventList();

@@ -6,64 +6,90 @@
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" type="image/png" href="../images/SSO.jpg">
-
 </head>
 
-<div class="common-header"></div>
 <body>
+<div class="common-header"></div>
 <div class="container">
 
     <h1>Admin Dashboard</h1>
 
-    <!-- Create Event Form -->
-    <div class="form-container">
-        <h2>Create Event</h2>
-        <form id="create-event-form">
-            <label for="event-name">Event Name:</label>
-            <input type="text" id="event-name" required>
+    <div class="crud-container">
+        <!-- Create Event Form -->
+        <div class="crud-box">
+            <div class="toggle-button" onclick="toggleBox('create-event-box')">
+                <span>Create Event</span>
+                <span class="toggle-icon">▼</span> <!-- Arrow icon to show/hide box -->
+            </div>
+            <div id="create-event-box" class="form-container hidden">
+                <form id="create-event-form">
+                    <label for="event-name">Event Name:</label>
+                    <input type="text" id="event-name" required>
 
-            <label for="event-description">Event Description:</label>
-            <textarea id="event-description" required></textarea>
+                    <label for="event-description">Event Description:</label>
+                    <textarea id="event-description" required></textarea>
 
-            <label for="event-date">Event Date:</label>
-            <input type="date" id="event-date" required>
+                    <label for="event-date">Event Date:</label>
+                    <input type="date" id="event-date" required>
 
-            <label for="event-image">Event Image:</label>
-            <input type="file" id="event-image" accept="image/*" required>
+                    <label for="event-image">Event Image:</label>
+                    <input type="file" id="event-image" accept="image/*" required>
 
-            <button type="submit">Create Event</button>
-        </form>
+                    <button type="submit">Create Event</button>
+                </form>
+            </div>
+        </div>
 
-    </div>
+        <!-- Update Event Form -->
+        <div class="crud-box">
+            <div class="toggle-button" onclick="toggleBox('update-event-box')">
+                <span>Update Event</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div id="update-event-box" class="form-container hidden">
+                <div class="event-fetch">
+                    <label for="update-event-id">Event ID:</label>
+                    <input type="number" id="update-event-id" placeholder="Enter Event ID">
+                    <button onclick="getEventDetails()">Get Event</button>
+                </div>
+                <form id="update-event-form">
+                    <label for="update-event-name">Event Name:</label>
+                    <input type="text" id="update-event-name" required>
 
-    <!-- Update Event Form -->
-    <div class="form-container">
-        <h2>Update Event</h2>
-        <label for="update-event-id">Event ID</label>
-        <input type="number" id="update-event-id">
-        <button onclick="getEventDetails()">Get Event</button>
-        <form id="update-event-form">
-            <label for="update-event-name">Event Name</label>
-            <input type="text" id="update-event-name" required>
-            <label for="update-event-description">Event Description</label>
-            <textarea id="update-event-description" required></textarea>
-            <label for="update-event-date">Event Date</label>
-            <input type="datetime-local" id="update-event-date" required>
-            <button type="submit">Update Event</button>
-        </form>
-    </div>
+                    <label for="update-event-description">Event Description:</label>
+                    <textarea id="update-event-description" required></textarea>
 
-    <!-- Event List -->
-    <div class="event-list">
-        <h2>Event List</h2>
-        <ul id="event-list"></ul>
-    </div>
+                    <label for="update-event-date">Event Date:</label>
+                    <input type="datetime-local" id="update-event-date" required>
 
-    <!-- Delete Event -->
-    <div class="form-container">
-        <h2>Delete Event</h2>
-        <label for="delete-event-id"></label><input type="number" id="delete-event-id" placeholder="Event ID">
-        <button onclick="deleteEvent()">Delete Event</button>
+                    <button type="submit">Update Event</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Delete Event -->
+        <div class="crud-box">
+            <div class="toggle-button" onclick="toggleBox('delete-event-box')">
+                <span>Delete Event</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div id="delete-event-box" class="form-container hidden">
+                <label for="delete-event-id">Event ID:</label>
+                <input type="number" id="delete-event-id" placeholder="Enter Event ID">
+                <button onclick="deleteEvent()">Delete Event</button>
+            </div>
+        </div>
+
+        <!-- Event List -->
+        <div class="crud-box">
+            <div class="toggle-button" onclick="toggleBox('event-list-box')">
+                <span>Event List</span>
+                <span class="toggle-icon">▼</span>
+            </div>
+            <div id="event-list-box" class="event-list hidden">
+                <ul id="event-list"></ul>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -71,6 +97,6 @@
 <script src="../js/footer.js"></script>
 <script src="../js/header.js"></script>
 <script src="../js/admin-dashboard.js"></script>
-
+<script src="../js/toggle.js"></script> <!-- Add this for toggle logic -->
 </body>
 </html>

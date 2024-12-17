@@ -1,3 +1,4 @@
+// Event listener for loginForm submission
 document.getElementById("loginForm").addEventListener("submit", async (event) => {
     event.preventDefault();
     const usernameOrEmail = document.getElementById("usernameOrEmail").value;
@@ -9,18 +10,15 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ username: usernameOrEmail, password }),  // Vi sender kun username og password
+            body: JSON.stringify({ username: usernameOrEmail, password }),
         });
 
         if (response.ok) {
             const data = await response.json();
-            console.log("Login Response:", data);  // Log response for debugging
+            console.log("Login Response:", data);
+            localStorage.setItem("username", data.username);
+            localStorage.setItem("memberEmail", data.email);
 
-            // Gemmer de relevante data i localStorage
-            localStorage.setItem("username", data.username);  // Gem username
-            localStorage.setItem("memberEmail", data.email);  // Gem email
-
-            // Omdiriger til den relevante dashboard-side baseret på rollen
             if (data.role === "ROLE_ADMIN") {
                 window.location.href = "admin-dashboard.html";
             } else if (data.role === "ROLE_MEMBER") {
@@ -33,4 +31,9 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
     } catch (error) {
         console.error("Error:", error);
     }
+});
+
+// Event listener for "Create User" button
+document.getElementById("createUserButton").addEventListener("click", () => {
+    window.location.href = "create-user.html";
 });

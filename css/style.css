@@ -354,5 +354,95 @@ footer a:hover {
     display: flex;
     flex-direction: column;
 }
+/* For at skjule boksene som standard */
+.hidden {
+    display: none;
+}
+
+/* Styling af knapperne der åbner og lukker bokse */
+.toggle-button {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 300px; /* Smal bredde for knappen */
+    max-width: 100%; /* Sørg for at knappen ikke går ud over containeren */
+}
+
+.toggle-button:hover {
+    background-color: #e9e9e9;
+}
+
+.toggle-icon {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+/* Pil der roterer når boksen åbnes */
+.toggle-icon.open {
+    transform: rotate(180deg); /* Roter pilen 180 grader når boksene er åbnet */
+}
+
+/* Styling af formularboksene */
+.form-container {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Smal bredde på boksene */
+    height: 400px; /* Længere højde for boksene */
+    overflow-y: auto; /* Hvis indholdet fylder for meget, kan du scrolle */
+    margin-top: 10px; /* Lidt afstand fra knappen */
+}
+
+/* Styling af selve containeren for CRUD-formularerne */
+.crud-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Små justeringer til at tilpasse layoutet */
+.crud-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Juster for at placere elementerne venstrejusteret */
+}
+
+/* Specific adjustments for delete event form */
+#delete-event-box {
+    padding: 5px; /* Adjust padding to reduce space */
+    width: 100%; /* Full width */
+    max-width: 300px; /* Adjust the max width as per preference */
+}
+
+#delete-event-box input {
+    width: 100%; /* Make input take full width */
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#delete-event-box button {
+    padding: 8px 15px;
+    background-color: #d9534f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#delete-event-box button:hover {
+    background-color: #c9302c;
+}
 
 

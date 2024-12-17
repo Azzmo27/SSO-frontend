@@ -10,25 +10,7 @@
 <body>
 <div th:replace="~{common-footer}"></div>
 
-<header>
-    <img src="../images/sso%20logo%20skrift.jpg" alt="SSO logo">
-    <div class="navbar">
-        <a href="../templates/index.html" class="nav-link">Hjem</a>
-        <a href="../templates/login.html" class="nav-link">Bliv Medlem</a>
-        <a href="../templates/view-upcoming-events.html" class="nav-link">Se Events</a>
-        <a href="../templates/login.html" class="nav-link">Log in</a>
-
-        <div class="dropdown">
-            <a href="#" class="nav-link">Afdelinger</a>
-            <div class="dropdown-content">
-                <a href="../templates/copenhagen.html" id="btn-cph">København</a>
-                <a href="../templates/odense.html" id="btn-odense">Odense</a>
-                <a href="../templates/aarhus.html" id="btn-aarhus">Aarhus</a>
-            </div>
-        </div>
-        <a href="../templates/about.html" class="nav-link">About Us</a>
-    </div>
-</header>
+<div class="common-header"></div>
 
 <div class="container">
     <h1>Om SSO</h1>
@@ -85,26 +67,8 @@
         <img src="../images/sso%20logo%20skrift.jpg" alt="Join SSO" style="width: 50%; display: block; margin: 10px auto;">
     </section>
 </div>
-
-<!-- Social Media section -->
-<div class="footer-follow">
-    <h4>Follow Us</h4>
-    <div class="social-buttons">
-        <a href="https://www.facebook.com/SSODanmark/" target="_blank" class="social-btn">
-            <img src="../images/facebook.webp" alt="Facebook" class="social-icon">
-        </a>
-        <a href="https://www.instagram.com/ssokoebenhavn/" target="_blank" class="social-btn">
-            <img src="../images/instagram%20logo.jpg" alt="Instagram" class="social-icon">
-        </a>
-        <a href="https://www.linkedin.com/company/somalisk-studenterorganisation/?originalSubdomain=dk" target="_blank" class="social-btn">
-            <img src="../images/circle-linkedin-512.webp" alt="LinkedIn" class="social-icon">
-        </a>
-        <a href="https://www.tiktok.com/@sso.odense" target="_blank" class="social-btn">
-            <img src="../images/tiktok.webp" alt="TikTok" class="social-icon">
-        </a>
-    </div>
-</div>
-
-</footer>
+<footer class="common-footer"></footer>
+<script src="../js/footer.js"></script>
+<script src="../js/header.js"></script>
 </body>
 </html>

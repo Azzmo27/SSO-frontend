@@ -2,33 +2,45 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fff5e9;
+    background-color: #FFF5EB;
 }
 
 header {
-    background-color: #fff5e9;
-    color: #658b56;
-    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;  /* Distribute space between image and navbar */
+    align-items: center;             /* Vertically center the items */
+    padding: 10px;
+}
+
+.logo {
+    display: block;
+    margin-right: 20px;  /* Optional: Add margin to the right of the image */
+    width: 500px;        /* Adjust the width as needed */
+    height: auto;        /* Maintain aspect ratio */
 }
 
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: center;  /* Center the navbar items */
     align-items: center;
-    gap: 20px;
+    gap: 70px;                /* Increase spacing between nav links */
+    flex-grow: 1;             /* Allow navbar to take up available space */
 }
 
 .nav-link {
-    color: #000000;
     text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    color: #000;
+    font-size: 16px;
 }
 
 .nav-link:hover {
-    background-color: #0fc0d7;
+    background-color: #368aae;
+    border: 3px solid #368aae; /* Adds or increases the border thickness */
+    border-radius: 5px; /* Optional: keeps the corners rounded */
+    padding: 8px; /* Optional: adjusts padding to ensure the content doesn't look squeezed */
+    transition: border 0.3s ease; /* Smooth transition */
 }
+
 .hero-image {
     width: 100%; /* Tilpasser billedet til bredden af containeren */
     max-width: 600px; /* Begrænser billedets maksimum bredde */
@@ -36,8 +48,6 @@ header {
     display: block; /* Centrerer billedet, hvis det bruges med margin */
     margin: 0 auto; /* Centerer billedet i containeren */
 }
-
-
 
 .dropdown-content {
     display: none;
@@ -58,9 +68,11 @@ header {
 }
 
 .dropdown-content a:hover {
-    background-color: #ffffff;
+    background-color: #368aae; /* Change to the desired hover background color */
+    color: #ffffff; /* Optional: text color on hover */
+    border-radius: 3px; /* Optional: rounded corners for a softer look */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition effect */
 }
-
 .dropdown:hover .dropdown-content {
     display: block;
 }
@@ -71,6 +83,7 @@ header {
     padding: 20px;
     text-align: center;
 }
+
 /* Grid layout for events */
 .event-grid {
     display: grid;
@@ -104,6 +117,7 @@ header {
     font-size: 16px;
     color: #555;
 }
+
 /* Stilarter til knapperne */
 .btn {
     display: inline-block;
@@ -138,24 +152,83 @@ header {
 .btn.register:hover {
     background-color: #c82333; /* Mørkere rød ved hover */
 }
+
 /* Footer-styling */
 footer {
-    background-color: #fff5e9;
-    text-align: left;
-    padding: 20px 0;
-    margin-top: 30px;
+    background-color: #368aae; /* Mørk blå */
+    color: #fff; /* White text for good contrast */
+    padding: 30px 20px; /* Adds padding for better spacing */
+    margin-top: 20px; /* Smaller space between footer and other content */
+    font-size: 14px; /* Adjust font size */
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px; /* Space between sections */
 }
 
-.footer-logo img {
-    max-width: 100px; /* Tilpas størrelsen på logoet */
-    height: auto;
-    border-radius: 5px; /* Gør hjørnerne lidt runde, hvis ønsket */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
-footer img:hover {
-    transform: scale(1.1); /* Effekt ved hover */
-    transition: transform 0.3s;
+.footer-contact,
+.footer-events,
+.footer-faq,
+.footer-follow {
+    width: 100%;
+    max-width: 250px; /* Adjust width for better alignment */
 }
+
+.footer-contact h4,
+.footer-events h4,
+.footer-faq h4,
+.footer-follow h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-contact p,
+.footer-events ul,
+.footer-faq ul {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-events ul,
+.footer-faq ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Social Media Section */
+.footer-follow .social-buttons {
+    display: flex;              /* Use flexbox to align icons in a row */
+    justify-content: center;    /* Center align icons horizontally */
+    gap: 2px;                  /* Add space between each icon */
+    flex-wrap: nowrap;          /* Prevent wrapping to a new line */
+}
+
+.social-btn img {
+    width: 50px;                /* Increase the size of the icons */
+    height: 50px;               /* Ensure height matches the width */
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.social-btn:hover img {
+    transform: scale(1.2);      /* Slight zoom effect on hover */
+}
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 .dropdown {
     position: relative;
     display: inline-block;
@@ -173,40 +246,33 @@ footer img:hover {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
 .social-btn {
     display: inline-block;
-    margin: 1px;
-    padding: 10px 20px;
-    color: #fff;
-    background-color: #fff5e9;
+    margin: 0 5px; /* Adjusted margin to make buttons closer */
+    padding: 8px 16px; /* Reduced padding for smaller buttons */
     text-decoration: none;
     border-radius: 5px;
-    font-size: 1px;
+    font-size: 14px; /* Adjust font size */
     text-align: center;
 }
 
 .social-btn:hover {
-    background-color: #fff5e9;
+    background-color: transparent;
 }
 
-/* Ny CSS for at gøre Instagram-logoet lille */
+/* Instagram logo size */
 .social-btn img {
-    width: 30px; /* Gør logoet mindre */
+    width: 25px; /* Smaller Instagram logo */
     height: auto;
     transition: transform 0.3s ease;
 }
 
 .social-btn:hover img {
-    transform: scale(1.1); /* Effekt ved hover */
-}
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    color: #333;
+    transform: scale(1.1);
 }
 
+/* Container styles */
 .container {
     max-width: 1200px; /* Holder layoutet centreret */
     margin: 0 auto;
@@ -214,3 +280,61 @@ footer img:hover {
     font-family: Arial, sans-serif;
     color: #333;
 }
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin-top: 20px; /* Adds spacing below the header */
+    text-align: center; /* Centers the slideshow */
+}
+
+/* Style for each slide */
+.mySlides {
+    display: none;
+    text-align: center; /* Ensures that images within the slide are centered */
+}
+
+.mySlides img {
+    width: 60%; /* Set the image width to 60% of the container's width */
+    max-width: 600px; /* Optional: limits the maximum width of the image */
+    height: auto; /* Keep images proportional */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+/* Fade effect for slideshow */
+.fade {
+    animation-name: fade;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+
+/* Container for the text below the slideshow */
+.intro-text {
+    background-color: #fff5e9;  /* Light background color for contrast */
+    padding: 20px;              /* Padding for space around the text */
+    border-radius: 8px;         /* Soft corners for a more modern look */
+    margin-top: 20px;           /* Add margin between images and text */
+}
+
+/* Style for the paragraphs */
+.intro-text p {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;  /* More space between lines for readability */
+    color: #333;       /* Dark gray text for better readability */
+    margin-bottom: 15px;
+}
+
+/* Style for emphasized text */
+.intro-text strong {
+    color: #368aae;    /* Use a stronger color for the organization name */
+    font-weight: bold;
+}
+
+/* Optional: Add a subtle hover effect for the text container */
+.intro-text:hover {
+    transform: scale(1.02);  /* Slight zoom effect on hover */
+    transition: transform 0.3s ease;
+}
+

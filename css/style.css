@@ -337,4 +337,22 @@ footer a:hover {
     transform: scale(1.02);  /* Slight zoom effect on hover */
     transition: transform 0.3s ease;
 }
+.user-info {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#userIcon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+#userDetails {
+    display: flex;
+    flex-direction: column;
+}
+
 

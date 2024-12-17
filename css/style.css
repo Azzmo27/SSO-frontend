@@ -214,3 +214,10 @@ footer img:hover {
     font-family: Arial, sans-serif;
     color: #333;
 }
+
+.event-card img {
+    width: 100%; /* Ensures the image fills the container */
+    height: 200px; /* Sets a fixed height for the images */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 5px; /* Optional: add rounded corners if needed */
+}

@@ -16,14 +16,21 @@
     <div class="form-container">
         <h2>Create Event</h2>
         <form id="create-event-form">
-            <label for="event-name">Event Name</label>
+            <label for="event-name">Event Name:</label>
             <input type="text" id="event-name" required>
-            <label for="event-description">Event Description</label>
+
+            <label for="event-description">Event Description:</label>
             <textarea id="event-description" required></textarea>
-            <label for="event-date">Event Date</label>
-            <input type="datetime-local" id="event-date" required>
+
+            <label for="event-date">Event Date:</label>
+            <input type="date" id="event-date" required>
+
+            <label for="event-image">Event Image:</label>
+            <input type="file" id="event-image" accept="image/*" required>
+
             <button type="submit">Create Event</button>
         </form>
+
     </div>
 
     <!-- Update Event Form -->

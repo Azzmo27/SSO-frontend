@@ -1,29 +1,37 @@
-const apiUrl = 'http://localhost:8080/api/events';  // Juster denne URL til din API-endpoint
+const apiUrl = 'http://localhost:8080/api/events';  // Adjust this URL to your API endpoint
 
 // Load upcoming events
 function loadUpcomingEvents() {
+    const baseUrl = 'http://localhost:8080'; // Adjust this if your server URL changes
+
     fetch(`${apiUrl}/getAllEvents`)
         .then(response => response.json())
         .then(events => {
-            const eventGridElement = document.querySelector('.event-grid');  // Brug event-grid containeren fra HTML
-            eventGridElement.innerHTML = '';  // Ryd listen først
+            const eventGridElement = document.querySelector('.event-grid');
+            eventGridElement.innerHTML = '';
 
             events.forEach(event => {
                 const eventElement = document.createElement('div');
-                eventElement.classList.add('event-card');  // Ændret fra 'event-box' til 'event-card'
+                eventElement.classList.add('event-card');
+
+                // Use the provided image URL or fallback to a default image
+                const imageUrl = event.imageUrl
+                    ? `${baseUrl}${event.imageUrl}`
+                    : '../images/default-image.jpg'; // Adjust the default image path
 
                 eventElement.innerHTML = `
+                    <img src="${imageUrl}" alt="${event.name}" class="event-image">
                     <h2>${event.name}</h2>
                     <p>${event.description}</p>
                     <p><strong>Dato:</strong> ${event.date}</p>
                     <p><strong>Medlemmer tilmeldt:</strong> ${event.members.length}</p>
-                    <button class="btn signup-btn" data-event-id="${event.id}">Tilmeld dig</button>  <!-- Knap med signup-btn -->
+                    <button class="btn signup-btn" data-event-id="${event.id}">Tilmeld dig</button>
                 `;
 
-                eventGridElement.appendChild(eventElement);  // Tilføj event kortet til grid-containeren
+                eventGridElement.appendChild(eventElement);
             });
 
-            // Add event listeners to the "Tilmeld dig" buttons
+            // Add event listeners for sign-up buttons
             document.querySelectorAll('.signup-btn').forEach(button => {
                 button.addEventListener('click', event => {
                     const eventId = event.target.getAttribute('data-event-id');
@@ -31,7 +39,10 @@ function loadUpcomingEvents() {
                 });
             });
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => {
+            console.error('Error:', error);
+            alert("Failed to load events. Please try again.");
+        });
 }
 
 // Sign up for an event
@@ -52,7 +63,7 @@ function signUpForEvent(eventId) {
         .then(response => response.json())
         .then(data => {
             alert('Du er nu tilmeldt eventet!');
-            loadUpcomingEvents(); // Genindlæs listen for at vise opdaterede data
+            loadUpcomingEvents(); // Reload the event list to show updated data
         })
         .catch(error => console.error('Error:', error));
 }

@@ -6,17 +6,17 @@ document.getElementById('create-event-form').addEventListener('submit', function
     const eventName = document.getElementById('event-name').value;
     const eventDescription = document.getElementById('event-description').value;
     const eventDate = document.getElementById('event-date').value;
+    const eventImage = document.getElementById('event-image').files[0];
 
-    const event = {
-        name: eventName,
-        description: eventDescription,
-        date: eventDate
-    };
+    const formData = new FormData();
+    formData.append('name', eventName);
+    formData.append('description', eventDescription);
+    formData.append('date', eventDate);
+    formData.append('image', eventImage);
 
-    fetch(`${apiUrl}/createEvent`, {
+    fetch('http://localhost:8080/admin/createEvent', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(event)
+        body: formData
     })
         .then(response => response.json())
         .then(data => {
@@ -27,6 +27,7 @@ document.getElementById('create-event-form').addEventListener('submit', function
             console.error('Error:', error);
         });
 });
+
 
 // Get Event Details for Update
 function getEventDetails() {

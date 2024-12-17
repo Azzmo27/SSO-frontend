@@ -41,6 +41,8 @@ document.getElementById("createUserForm").addEventListener("submit", async (even
         // Håndtering af respons
         if (response.ok) {
             alert("Bruger oprettet med succes!");
+            // Redirect to login page after successful user creation
+            window.location.href = "../templates/login.html";
         } else {
             const errorMessage = await response.text();
             alert("Fejl: " + errorMessage);
@@ -63,4 +65,8 @@ document.getElementById("membershipType").addEventListener("change", (event) => 
         departmentContainer.style.display = "none";
         studyFieldContainer.style.display = "none";
     }
+    // Event listener for "Create User" button
+    document.getElementById("").addEventListener("click", () => {
+        window.location.href = "../templates/login.html";
+    });
 });

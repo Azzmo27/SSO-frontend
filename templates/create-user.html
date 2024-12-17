@@ -1,41 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create User</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Opret Bruger</title>
 </head>
 <body>
-<h1>Create User</h1>
+<div class="common-header"></div>
+
+<h1>Opret Bruger</h1>
 <form id="createUserForm">
-    <label for="username">Username:</label>
-    <input type="text" id="username" placeholder="Username" required />
+    <label for="username">Brugernavn:</label>
+    <input type="text" id="username" placeholder="Brugernavn" required />
 
     <label for="email">Email:</label>
     <input type="email" id="email" placeholder="Email" required />
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" placeholder="Password" required />
+    <label for="password">Adgangskode:</label>
+    <input type="password" id="password" placeholder="Adgangskode" required />
 
-    <label for="membershipType">Membership Type:</label>
+    <label for="education">Uddannelse:</label>
+    <input type="text" id="education" placeholder="Uddannelse" required />
+
+    <label for="educationLevel">Uddannelse:</label>
+    <input type="text" id="educationLevel" placeholder="Uddannelses niveau" required />
+
+    <label for="membershipType">Medlemstype:</label>
     <select id="membershipType" required>
-        <option value="ACTIVE">Active</option>
-        <option value="PASSIVE">Passive</option>
+        <option value="ACTIVE">Aktiv</option>
+        <option value="PASSIVE">Passiv</option>
     </select>
 
     <div id="departmentContainer" style="display: none;">
-        <label for="department">Department:</label>
+        <label for="department">Afdeling:</label>
         <select id="department">
-            <option value="FUNDING">Funding</option>
-            <option value="SOCIAL_AND_CULTURE">Social and Culture</option>
-            <option value="RECRUITMENT">Recruitment</option>
-            <option value="MARKETING_AND_CAREER">Marketing and Career</option>
+            <option value="FUNDING">Finansiering</option>
+            <option value="SOCIAL_AND_CULTURE">Social og Kultur</option>
+            <option value="RECRUITMENT">Rekruttering</option>
+            <option value="MARKETING_AND_CAREER">Marketing og Karriere</option>
         </select>
     </div>
 
-    <button type="submit">Create User</button>
+    <div id="studyFieldContainer" style="display: none;">
+        <label for="studyfield">Fagområde:</label>
+        <select id="studyfield">
+            <option value="HEALTH_SCIENCES">Sundhedsvidenskabelig</option>
+            <option value="NATURAL_SCIENCES">Naturvidenskabelig</option>
+            <option value="ENGINEERING_SCIENCES">Ingeniørfagligt</option>
+            <option value="HUMANITIES">Humanistisk</option>
+            <option value="SOCIAL_SCIENCES">Samfundsvidenskabelig</option>
+        </select>
+    </div>
+
+    <button type="submit">Opret Bruger</button>
 </form>
 
+<footer class="common-footer"></footer>
+<script src="../js/footer.js"></script>
+<script src="../js/header.js"></script>
 <script src="../js/create-user.js"></script>
+
 </body>
 </html>

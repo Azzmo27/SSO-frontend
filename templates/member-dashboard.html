@@ -8,6 +8,28 @@
     <title>Member Dashboard</title>
 </head>
 <body>
-<h1>Welcome, Member!</h1>
+
+<div class="common-header"></div>
+
+<h1>Welcome, <span id="memberName">Member!</span></h1>
+
+<div class="user-info">
+    <img id="userIcon" src="../images/user-icon.png" alt="User Icon">
+    <div id="userDetails">
+        <p><strong>Username:</strong> <span id="username"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <button id="logoutButton">Log Out</button>
+    </div>
+</div>
+
+<h2>Your Events</h2>
+<div id="eventsList">
+    <!-- Events will be dynamically loaded here -->
+</div>
+
+<footer class="common-footer"></footer>
+<script src="../js/footer.js"></script>
+<script src="../js/header.js"></script>
+<script src="../js/member-dashboard.js"></script>
 </body>
 </html>

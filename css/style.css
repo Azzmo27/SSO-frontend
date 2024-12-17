@@ -338,3 +338,17 @@ footer a:hover {
     transition: transform 0.3s ease;
 }
 
+/* Billeder ved siden af hinanden */
+.image-container {
+    display: flex; /* Brug flexbox */
+    justify-content: center; /* Centrer billederne vandret */
+    gap: 20px; /* Afstand mellem billederne */
+    margin-top: 20px; /* Giv lidt luft over */
+}
+
+.hero-image {
+    width: 45%; /* Gør billederne lidt mindre, så de passer ved siden af hinanden */
+    height: auto; /* Bevar billedets proportioner */
+    border-radius: 8px; /* Runde kanter, valgfrit */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Let skygge for æstetik */
+}

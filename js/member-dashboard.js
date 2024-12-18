@@ -14,40 +14,40 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("username").innerText = username;
     document.getElementById("email").innerText = email;
 
+     // Hent password fra inputfeltet
+
     try {
+        // Send login-anmodning til backend
         const response = await fetch("http://localhost:8080/api/users/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ username: username, password: "userPassword" }) // Juster adgangskoden, hvis nødvendigt
+            body: JSON.stringify({
+                username: username,
+                  // Brug brugerens input password
+            })
         });
 
+        // Håndter responsen
         if (response.ok) {
             const data = await response.json();
-            console.log("User Data:", data); // Log til debugging
+            console.log("Response keys:", Object.keys(data));
+            console.log("User Data from Backend:", data);
 
-            // Vis medlemsstatus
-            document.getElementById("membershipStatus").innerText = `Status: ${data.membershipType}`;
+            // Vis medlemsstatus (hvis ønsket)
+            document.getElementById("membershipStatus").innerText = data.membershipStatus || "Unknown";
 
-            if (data.membershipType === "Active") {
-                // Kun for aktive medlemmer
-                document.getElementById("department").innerText = `Department: ${data.department || "Not assigned"}`;
-                document.getElementById("studyField").innerText = `Study Field: ${data.studyField || "Not assigned"}`;
-                document.getElementById("educationLevel").innerText = `Education Level: ${data.educationLevel || "Not specified"}`;
-            } else {
-                // Skjul felter for inaktive medlemmer
-                document.getElementById("department").innerText = "";
-                document.getElementById("studyField").innerText = "";
-                document.getElementById("educationLevel").innerText = "";
-            }
+            // Kun de nødvendige oplysninger vises
+            document.getElementById("department").innerText = "Not available";  // Fjernet fra backend
+            document.getElementById("studyField").innerText = "Not available";  // Fjernet fra backend
+            document.getElementById("educationLevel").innerText = "Not available";  // Fjernet fra backend
         } else {
             console.error("Failed to fetch user data:", await response.text());
         }
     } catch (error) {
         console.error("Error loading user data:", error);
     }
-
 
     // Hent events for medlemmet
     try {
@@ -81,10 +81,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Log out functionality
     document.getElementById("logoutButton").addEventListener("click", () => {
+        console.log("Logout button clicked"); // Tilføjet log for at fejlsøge
         localStorage.clear();  // Ryd localStorage ved log ud
         alert("Logged out successfully!");
-        window.location.href = "../templates/login.html";  // Redirect til login siden
+        window.location.href = "../templates/login.html";  // Redirect til login-siden
     });
 });
-
-

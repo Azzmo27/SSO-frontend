@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,15 +11,21 @@
 
 <div class="common-header"></div>
 
-<h1>Login</h1>
-<form id="loginForm">
-    <label for="usernameOrEmail"></label><input type="text" id="usernameOrEmail" placeholder="Brugernavn eller Email" required />
-    <label for="password"></label><input type="password" id="password" placeholder="Adgangskode" required />
-    <button type="submit">Log ind</button>
-</form>
+<!-- Main content wrapper -->
+<div class="main-content">
+    <!-- Login Box Wrapper -->
+    <div class="login-box">
+        <h1>Log ind</h1>
+        <form id="loginForm">
+            <label for="usernameOrEmail"></label><input type="text" id="usernameOrEmail" placeholder="Brugernavn eller Email" required />
+            <label for="password"></label><input type="password" id="password" placeholder="Adgangskode" required />
+            <button type="submit">Log ind</button>
+        </form>
 
-<!-- Add a button to redirect to the create user page -->
-<p>Har du ikke en konto? <button id="createUserButton">Opret ny bruger</button></p>
+        <!-- Add a button to redirect to the create user page -->
+        <p>Har du ikke en konto? <button id="createUserButton">Opret ny bruger</button></p>
+    </div>
+</div>
 
 <footer class="common-footer"></footer>
 
@@ -29,5 +34,3 @@
 <script src="../js/header.js"></script>
 </body>
 </html>
-
-

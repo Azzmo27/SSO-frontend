@@ -1,3 +1,13 @@
+document.addEventListener("DOMContentLoaded", () => {
+    // Set default selection to "PASSIVE"
+    const membershipTypeSelect = document.getElementById("membershipType");
+    membershipTypeSelect.value = "PASSIVE"; // Set to "PASSIVE" by default
+
+    // Trigger the change event to hide department and study field
+    const event = new Event("change");
+    membershipTypeSelect.dispatchEvent(event);
+});
+
 document.getElementById("createUserForm").addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -65,8 +75,4 @@ document.getElementById("membershipType").addEventListener("change", (event) => 
         departmentContainer.style.display = "none";
         studyFieldContainer.style.display = "none";
     }
-    // Event listener for "Create User" button
-    document.getElementById("").addEventListener("click", () => {
-        window.location.href = "../templates/login.html";
-    });
 });

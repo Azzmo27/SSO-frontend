@@ -445,4 +445,169 @@ footer a:hover {
     background-color: #c9302c;
 }
 
+/* Styling for login box */
+.login-box {
+    width: 350px; /* Bredde af login-boksen */
+    padding: 30px;
+    margin: 0 auto; /* Center formularen på siden */
+    background-color: #fff; /* Hvid baggrund for boksen */
+    border-radius: 10px; /* Rundede hjørner */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Let skygge omkring boksen */
+    text-align: center; /* Centrer teksten og formularen i boksen */
+}
+
+/* Styling for form fields */
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 100%; /* Gør input-felterne 100% bredde af boksen */
+    padding: 10px;
+    margin: 10px 0; /* Afstand mellem inputfelter */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Sikrer at padding ikke påvirker bredden */
+}
+
+/* Styling for submit button */
+.login-box button {
+    width: 100%; /* Gør knappen 100% bredde af boksen */
+    padding: 12px;
+    background-color: #368aae; /* Blå farve */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.login-box button:hover {
+    background-color: #368aae; /* Mørkere blå ved hover */
+}
+
+/* Optional: Link styling for 'forgot password' or other links */
+.login-box a {
+    color: #003366;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.login-box a:hover {
+    text-decoration: underline;
+}
+/* Login box styling */
+
+.login-box {
+    background-color: #FFF5EB;
+    border-radius: 50px;
+    padding: 30px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Maximum width of the box */
+    margin: 0 auto; /* Centers the box */
+    text-align: center; /* Centers content inside the box */
+}
+
+/* Styling for create user box */
+.create-user-box {
+    width: 350px; /* Bredde af create user-boksen */
+    padding: 30px;
+    margin: 0 auto; /* Center formularen på siden */
+    background-color: #FFF5EB; /* Lys baggrund for boksen */
+    border-radius: 50px; /* Rundede hjørner */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Let skygge omkring boksen */
+    text-align: center; /* Centrer teksten og formularen i boksen */
+}
+
+/* Styling for form fields */
+.create-user-box input[type="text"],
+.create-user-box input[type="email"],
+.create-user-box input[type="password"],
+.create-user-box select {
+    width: 100%; /* Gør input-felterne 100% bredde af boksen */
+    padding: 10px;
+    margin: 10px 0; /* Afstand mellem inputfelter */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Sikrer at padding ikke påvirker bredden */
+}
+
+/* Styling for submit button */
+.create-user-box button {
+    width: 100%; /* Gør knappen 100% bredde af boksen */
+    padding: 12px;
+    background-color: #368aae; /* Blå farve */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.create-user-box button:hover {
+    background-color: #005f8c; /* Mørkere blå ved hover */
+}
+
+/* Optional: Styling for select fields */
+.create-user-box select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Responsiv design */
+@media (max-width: 600px) {
+    .create-user-box {
+        width: 90%; /* Formularen fylder næsten hele skærmbredden på små enheder */
+    }
+}
+
+/* Responsive image class for consistency */
+.img-responsive {
+    width: 100%;
+    max-width: 600px; /* Adjust image width for responsiveness */
+    height: auto;
+    display: block;
+    margin: 20px auto; /* Centers the image */
+}
+
+.event-images img {
+    width: 48%;
+    margin: 10px 1%; /* Creates a neat layout with spacing between the images */
+}
+
+/* Style for the container for better text spacing and alignment */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: left; /* Aligns text to the left for better readability */
+}
+
+/* General Heading and Paragraph styling */
+h1, h2 {
+    font-size: 28px;
+    color: #003366;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Adding spacing and styling for the sections */
+section {
+    margin-bottom: 40px;
+}
+
+
 

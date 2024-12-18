@@ -615,4 +615,37 @@ section {
     object-fit: cover; /* Ensures the image covers the area without distortion */
     border-radius: 5px; /* Optional: add rounded corners if needed */
 }
+/* Flex container for video and images */
+.media-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
 
+/* Styling for video container */
+.video-container {
+    flex: 1;
+    max-width: 600px;  /* Maksimal bredde for video */
+}
+
+/* Styling for video */
+.video-container video {
+    width: 100%;
+    height: auto;
+    max-height: 583px;  /* Maksimal højde for video */
+}
+
+/* Styling for image container */
+.image-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Styling for hero images */
+.hero-image {
+    width: 100%;
+    height: auto;
+}

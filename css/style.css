@@ -158,7 +158,7 @@ footer {
     background-color: #368aae; /* Mørk blå */
     color: #fff; /* White text for good contrast */
     padding: 30px 20px; /* Adds padding for better spacing */
-    margin-top: 20px; /* Smaller space between footer and other content */
+    margin-top: auto; /* Smaller space between footer and other content */
     font-size: 14px; /* Adjust font size */
     position: relative;
     display: flex;
@@ -617,10 +617,13 @@ section {
 }
 
 html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+    height: 100%;  /* Ensure the page takes the full height */
+    margin: 0;     /* Remove default margin */
+    padding: 0;    /* Remove default padding */
+    display: flex;
+    flex-direction: column;
 }
+
 
 .common-header, .common-footer {
     width: 100%;

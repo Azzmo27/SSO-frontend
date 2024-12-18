@@ -9,52 +9,56 @@
 <body>
 <div class="common-header"></div>
 
-<h1>Opret Bruger</h1>
-<form id="createUserForm">
-    <label for="username">Brugernavn:</label>
-    <input type="text" id="username" placeholder="Brugernavn" required />
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" placeholder="Email" required />
 
-    <label for="password">Adgangskode:</label>
-    <input type="password" id="password" placeholder="Adgangskode" required />
+<div class="create-user-box">
+    <h1>Opret Bruger</h1> <!-- Overskriften er nu inde i boksen -->
+    <form id="createUserForm">
+        <label for="username">Brugernavn:</label>
+        <input type="text" id="username" placeholder="Brugernavn" required />
 
-    <label for="education">Uddannelse:</label>
-    <input type="text" id="education" placeholder="Uddannelse" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Email" required />
 
-    <label for="educationLevel">Uddannelse:</label>
-    <input type="text" id="educationLevel" placeholder="Uddannelses niveau" required />
+        <label for="password">Adgangskode:</label>
+        <input type="password" id="password" placeholder="Adgangskode" required />
 
-    <label for="membershipType">Medlemstype:</label>
-    <select id="membershipType" required>
-        <option value="ACTIVE">Aktiv</option>
-        <option value="PASSIVE">Passiv</option>
-    </select>
+        <label for="education">Uddannelse:</label>
+        <input type="text" id="education" placeholder="Uddannelse" required />
 
-    <div id="departmentContainer" style="display: none;">
-        <label for="department">Afdeling:</label>
-        <select id="department">
-            <option value="FUNDING">Finansiering</option>
-            <option value="SOCIAL_AND_CULTURE">Social og Kultur</option>
-            <option value="RECRUITMENT">Rekruttering</option>
-            <option value="MARKETING_AND_CAREER">Marketing og Karriere</option>
+        <label for="educationLevel">Uddannelses niveau:</label>
+        <input type="text" id="educationLevel" placeholder="Uddannelses niveau" required />
+
+        <label for="membershipType">Medlemstype:</label>
+        <select id="membershipType" required>
+            <option value="ACTIVE">Aktiv</option>
+            <option value="PASSIVE">Passiv</option>
         </select>
-    </div>
 
-    <div id="studyFieldContainer" style="display: none;">
-        <label for="studyfield">Fagområde:</label>
-        <select id="studyfield">
-            <option value="HEALTH_SCIENCES">Sundhedsvidenskabelig</option>
-            <option value="NATURAL_SCIENCES">Naturvidenskabelig</option>
-            <option value="ENGINEERING_SCIENCES">Ingeniørfagligt</option>
-            <option value="HUMANITIES">Humanistisk</option>
-            <option value="SOCIAL_SCIENCES">Samfundsvidenskabelig</option>
-        </select>
-    </div>
+        <div id="departmentContainer" style="display: none;">
+            <label for="department">Afdeling:</label>
+            <select id="department">
+                <option value="FUNDING">Finansiering</option>
+                <option value="SOCIAL_AND_CULTURE">Social og Kultur</option>
+                <option value="RECRUITMENT">Rekruttering</option>
+                <option value="MARKETING_AND_CAREER">Marketing og Karriere</option>
+            </select>
+        </div>
 
-    <button type="submit">Opret Bruger</button>
-</form>
+        <div id="studyFieldContainer" style="display: none;">
+            <label for="studyfield">Fagområde:</label>
+            <select id="studyfield">
+                <option value="HEALTH_SCIENCES">Sundhedsvidenskabelig</option>
+                <option value="NATURAL_SCIENCES">Naturvidenskabelig</option>
+                <option value="ENGINEERING_SCIENCES">Ingeniørfagligt</option>
+                <option value="HUMANITIES">Humanistisk</option>
+                <option value="SOCIAL_SCIENCES">Samfundsvidenskabelig</option>
+            </select>
+        </div>
+
+        <button type="submit">Opret Bruger</button>
+    </form>
+</div>
 
 <footer class="common-footer"></footer>
 <script src="../js/footer.js"></script>

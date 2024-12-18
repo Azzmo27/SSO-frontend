@@ -616,3 +616,30 @@ section {
     border-radius: 5px; /* Optional: add rounded corners if needed */
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.common-header, .common-footer {
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensure the body takes up 100% height */
+}
+
+.common-header {
+    /* Header styles */
+}
+
+.main-content {
+    flex-grow: 1; /* This makes the main content grow and take up available space */
+}
+
+.common-footer {
+    /* Footer styles */
+}
